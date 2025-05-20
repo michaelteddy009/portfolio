@@ -1,17 +1,17 @@
 version: "3.8"
 
 services:
-    app:
+    portfolio.app:
         build:
-            context: .
+            context: main
             dockerfile: Dockerfile
-        container_name: laravel-app
+        container_name: portfolio.app
         volumes:
-            - .:/var/www
+            - ./main:/var/www
         ports:
             - 8000:8000
         depends_on:
-            - db
+            - portfolio.db
         environment:
             - DB_HOST=db
             - DB_PORT=5432
@@ -19,9 +19,9 @@ services:
             - DB_USERNAME=laravel
             - DB_PASSWORD=secret
 
-    db:
+    portfolio.db:
         image: postgres:15
-        container_name: postgres-db
+        container_name: portfolio.db
         restart: unless-stopped
         ports:
             - 5432:5432
@@ -30,7 +30,7 @@ services:
             POSTGRES_USER: laravel
             POSTGRES_PASSWORD: secret
         volumes:
-            - pgdata:/var/lib/postgresql/data
+            - portfolio-data:/var/lib/postgresql/data
 
 volumes:
-    pgdata:
+    portfolio-data:
