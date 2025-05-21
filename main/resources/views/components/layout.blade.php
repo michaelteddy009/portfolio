@@ -830,8 +830,30 @@
     </style>
 </head>
 
-<body class="antialiased">
-    {{ $slot }}
+<body class="h-full antialiased">
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center bg-white">
+        <div class="max-w-2xl px-4 text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mb-6">
+                Hi, I'm John Doe
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-600 mb-8">
+                A full-stack developer crafting modern and scalable web applications.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#projects"
+                    class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                    View My Work
+                </a>
+                <a href="#contact"
+                    class="px-6 py-3 border border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-50 transition">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+    </section>
+
 </body>
 
 </html>
